@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Compania 1') {
           steps {
-            bat 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql'
+            OUTPUT_1 = (bat 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql')
           }
         }
         stage('Compania 2') {
@@ -23,7 +23,7 @@ post {
                      cc: '',
                      from: 'jenkins-admin@gmail.com',
                      replyTo: '',
-                     subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded",
+                     subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded \n ${OUTPUT_1}",
                      to: 'mig.suarez1989@gmail.com')
                      
         }
