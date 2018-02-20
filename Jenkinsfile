@@ -32,7 +32,7 @@ pipeline {
   }
   post {
     success {
-      mail(bcc: '', body: "Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.\n\n COMPANIA 1: ${RESULT_1} \n\n COMPANIA 2: ${RESULT_2}", cc: '', from: 'jenkins-admin@gmail.com', replyTo: '', subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded ", to: 'mig.suarez1989@gmail.com')
+      mail(bcc: '', body: "Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.\n\n COMPANIA 1: ${RESULT_1} \n\n COMPANIA 2: ${RESULT_2}", cc: '', from: 'jenkins-admin@gmail.com', replyTo: '', subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded ", to: 'fsarco88@gmail.com')
       
     }
     
