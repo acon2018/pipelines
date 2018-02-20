@@ -24,7 +24,7 @@ post {
                      cc: '',
                      from: 'jenkins-admin@gmail.com',
                      replyTo: '',
-                     subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded \n ${OUTPUT_1}",
+                     subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded ",
                      to: 'mig.suarez1989@gmail.com')
                      
         }
