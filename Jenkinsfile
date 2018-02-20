@@ -1,12 +1,19 @@
 pipeline {
   agent any
+  environment {
+    ENV_NAME = ""
+  }
   stages {
     stage('Compania 1') {
       parallel {
         stage('Compania 1') {
           steps {
-           bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
-		  }
+		   script{
+           def output1 =bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
+		   ENV_NAME = output1
+		    }
+			echo "${ENV_NAME}"
+		   }
         }
         stage('Compania 2') {
           steps {
