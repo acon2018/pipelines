@@ -23,7 +23,7 @@ post {
                      from: 'jenkins-admin@gmail.com',
                      replyTo: '',
                      subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded",
-                     to: mig.suarez1989@gmail.com)
+                     to: 'mig.suarez1989@gmail.com')
                      
         }
         failure {
@@ -33,7 +33,7 @@ post {
                  from: 'jenkins-admin@gmail.com',
                  replyTo: '',
                  subject: "${JOB_NAME} ${BUILD_NUMBER} failed",
-                 to: mig.suarez1989@gmail.com)
+                 to: 'mig.suarez1989@gmail.com')
         }
   }
 }
