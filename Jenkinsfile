@@ -6,7 +6,6 @@ pipeline {
         stage('Compania 1') {
           steps {
             output1 = bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
-            echo ${output1}
 		  }
         }
         stage('Compania 2') {
