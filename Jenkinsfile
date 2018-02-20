@@ -21,7 +21,7 @@ pipeline {
           steps {
 		    script{
             def output2 = bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test2.sql', returnStdout: true)
-            RESULT_2 = output2.readLines().drop(1).join(" ");
+            RESULT_2 = output2.readLines().drop(1).join(" ")
 		  }
 		  echo "${RESULT2}"
         }
