@@ -11,7 +11,7 @@ pipeline {
         stage('Compania 1') {
           steps {
 		   script{
-		   @echo off
+		   
            def output1 =bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
 		   RESULT_1 = output1.trim()
 		    }
@@ -32,7 +32,7 @@ pipeline {
   }
   post {
     success {
-      mail(bcc: '', body: "Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.", cc: '', from: 'jenkins-admin@gmail.com', replyTo: '', subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded ", to: 'mig.suarez1989@gmail.com')
+      mail(bcc: '', body: "Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.\n\n COMPANIA 1: ${RESULT_1} \n\n COMPANIA 2: ${RESULT_2}", cc: '', from: 'jenkins-admin@gmail.com', replyTo: '', subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded ", to: 'mig.suarez1989@gmail.com')
       
     }
     
