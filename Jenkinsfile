@@ -12,9 +12,9 @@ pipeline {
           steps {
 		   script{
            def output1 =bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
-		   RESULT1 = output1
+		   RESULT_1 = output1.readLines().drop(1).join(" ")
 		    }
-			echo "${RESULT1}"
+			echo "${RESULT_1}"
 		   }
         }
         stage('Compania 2') {
@@ -23,7 +23,7 @@ pipeline {
             def output2 = bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test2.sql', returnStdout: true)
             RESULT_2 = output2;
 		  }
-		  echo "${RESULT1}"
+		  echo "${RESULT_2}"
         }
       }
 	  }
