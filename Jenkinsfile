@@ -1,7 +1,9 @@
 pipeline {
   agent any
   environment {
-    ENV_NAME = ""
+    RESULT_1 = ""
+	RESULT_2 = ""
+
   }
   stages {
     stage('Compania 1') {
@@ -10,15 +12,18 @@ pipeline {
           steps {
 		   script{
            def output1 =bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
-		   ENV_NAME = output1
+		   RESULT1 = output1.readLines().drop(1).join(" ")
 		    }
-			echo "${ENV_NAME}"
+			echo "${RESULT1}"
 		   }
         }
         stage('Compania 2') {
           steps {
-            bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test2.sql', returnStdout: true)
-          }
+		    script{
+            def output2 = bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test2.sql', returnStdout: true)
+            RESULT_2 = output2.readLines().drop(1).join(" ");
+		  }
+		  echo "${RESULT2}"
         }
       }
     }
