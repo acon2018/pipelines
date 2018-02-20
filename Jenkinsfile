@@ -15,6 +15,7 @@ pipeline {
         }
       }
     }
+	}
 post {
         success {
                 mail(bcc: '',
