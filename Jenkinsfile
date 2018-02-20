@@ -5,9 +5,8 @@ pipeline {
       parallel {
         stage('Compania 1') {
           steps {
-            bat 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql' > results.txt
-			def output=readFile('result.txt').trim()
-			echo ${output}
+            bat 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql'
+
 		  }
         }
         stage('Compania 2') {
