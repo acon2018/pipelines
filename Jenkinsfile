@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Compania 1') {
           steps {
-            OUTPUT_1 = (bat 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql')
+            OUTPUT_1 = bat ('sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql')
             echo ${OUTPUT_1}
 		  }
         }
