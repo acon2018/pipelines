@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Testing db') {
       steps {
-        echo 'test'
+        bat 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i Desktop\\test.sql'
       }
     }
   }
