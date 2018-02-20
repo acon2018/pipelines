@@ -15,10 +15,25 @@ pipeline {
         }
       }
     }
-    stage('') {
-      steps {
-        mail(body: 'Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.', subject: '${JOB_NAME} ${BUILD_NUMBER} succeeded', from: 'jenkins-admin@gmail.com', to: 'mig.suarez1989@gmail.com')
-      }
-    }
+post {
+        success {
+                mail(bcc: '',
+                     body: "Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.",
+                     cc: '',
+                     from: 'jenkins-admin@gmail.com',
+                     replyTo: '',
+                     subject: "${JOB_NAME} ${BUILD_NUMBER} succeeded",
+                     to: mig.suarez1989@gmail.com)
+                     
+        }
+        failure {
+            mail(bcc: '',
+                body: "Run ${JOB_NAME}-#${BUILD_NUMBER} succeeded. To get more details, visit the build results page: ${BUILD_URL}.",
+                 cc: '',
+                 from: 'jenkins-admin@gmail.com',
+                 replyTo: '',
+                 subject: "${JOB_NAME} ${BUILD_NUMBER} failed",
+                 to: mig.suarez1989@gmail.com)
+        }
   }
 }
