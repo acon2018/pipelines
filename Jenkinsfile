@@ -6,11 +6,12 @@ pipeline {
 
   }
   stages {
-    stage('Compania 1') {
+    stage('Companias') {
       parallel {
         stage('Compania 1') {
           steps {
 		   script{
+		   @echo off
            def output1 =bat(script: 'sqlcmd -S server-central -U sa -P sql_2016 -d DBeDocSys2014 -i C:\\Users\\usuario1\\Desktop\\test.sql', returnStdout: true)
 		   RESULT_1 = output1.trim()
 		    }
